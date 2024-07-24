@@ -9,13 +9,15 @@ public class StationMover : MonoBehaviour
 
     public void GoToStation(int index)
     {
+        // Checagem simples se o index passado é válido
         if (index >= cameras.Count || index < 0)
         {
-            Debug.LogError("Index Out Of Range!", this);
+            Debug.LogError("Index Out Of Range! ==> " + index.ToString());
             return;
         }
 
 
+        // Troca de camera atual alterando prioridades
         CinemachineVirtualCamera virtualCamera = cameras[index];
 
         virtualCamera.Priority = 100;
