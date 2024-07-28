@@ -7,6 +7,13 @@ TagManager:
   - cobre
   - batata
   - suco
+  - prata
+  - estanho
+  - fibra
+  - copo
+  - pilha
+  - salOuro
+  - salCarvao
   layers:
   - Default
   - TransparentFX
