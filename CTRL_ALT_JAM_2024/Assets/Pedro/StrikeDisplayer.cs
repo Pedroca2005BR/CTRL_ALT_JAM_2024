@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class StrikeDisplayer : MonoBehaviour
 {
     [SerializeField] private SceneController controller;
-    [SerializeField] private Image[] strikes;
+    private Image[] strikes;
     private bool[] isStriked;
 
     private void Start()
     {
+        strikes = transform.GetComponentsInChildren<Image>();
+        //Debug.Log(strikes[0]);
         isStriked = new bool[strikes.Length];
     }
 
     public void Strike()
     {
         // procura o primeiro nao striked mark
-        for(int i = 0; i < strikes.Length; i++)
+        for(int i = 0; i < strikes.Length-1; i++)
         {
             if (!isStriked[i])
             {
@@ -25,7 +28,7 @@ public class StrikeDisplayer : MonoBehaviour
 
                 //tocar som de strike
 
-                strikes[i].tintColor = Color.red;
+                strikes[i].color = Color.red;
 
                 return;
             }

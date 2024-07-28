@@ -5,19 +5,20 @@ using UnityEngine;
 
 public enum ClientState
 {
-    WantToOrder,
     Ordering,
     Waiting
 }
 
 public class RobotClient : MonoBehaviour
 {
+    [SerializeField] private float timeOrdering;
     [SerializeField] private float speed;
     [SerializeField] private float timeBetweenStates;
     private float currentTime;
     private ClientState state;
 
     bool angry = false;
+    bool timeFlow = true;
 
     [SerializeField] private int score;
 
@@ -27,25 +28,31 @@ public class RobotClient : MonoBehaviour
 
     private void Start()
     {
-        state = ClientState.WantToOrder;
+        state = ClientState.Ordering;
         currentTime = 0;
     }
 
     private void Update()
     {
-        switch (state)
-        {
-            case ClientState.WantToOrder:
-                WantOrderMode();
-                break;
+        if (timeFlow)
+        Waiting();
+    }
 
-            case ClientState.Waiting:
-                WaitingForOrderMode(); 
-                break;
+    private void OnMouseDown()
+    {
+        if (state == ClientState.Ordering)
+        {
+            StartCoroutine("MakeRequest");
+        }
+        else
+        {
+            CheckOrder();
         }
     }
 
-    private void WantOrderMode()
+
+
+    private void Waiting()
     {
         currentTime += Time.deltaTime;
 
@@ -61,36 +68,31 @@ public class RobotClient : MonoBehaviour
             {
 
                 scoreDisplayer.ChangeScore(score * -1);
+                strikeDisplayer.Strike();
 
                 Destroy(gameObject);
             }
         }
     }
 
-    private void WaitingForOrderMode()
+
+    public IEnumerator MakeRequest()
     {
-        currentTime += Time.deltaTime;
+        timeFlow = false;
+        // fazer pedido e parara timbum
 
-        if (currentTime > timeBetweenStates)
-        {
-            if (!angry)
-            {
-                // sprite robo bravo
-                angry = true;
-                currentTime = 0;
-            }
-            else
-            {
+        yield return new WaitForSeconds(timeOrdering);
 
-                scoreDisplayer.ChangeScore(score * -1);
+        //settar outras coisas pra seguir o jogo
+        currentTime = 0;
+        angry = false;
 
-                Destroy(gameObject);
-            }
-        }
+        state = ClientState.Waiting;
+        timeFlow = true;
     }
 
-    public void MakeRequest()
+    public void CheckOrder()
     {
-        
+
     }
 }
