@@ -5,7 +5,15 @@ using UnityEngine;
 
 public class ScoreDisplayer : MonoBehaviour
 {
+    public static ScoreDisplayer instance;
+
     [SerializeField] private TextMeshProUGUI proUGUI;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
