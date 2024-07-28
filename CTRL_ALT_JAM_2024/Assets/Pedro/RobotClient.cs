@@ -11,9 +11,9 @@ public enum ClientState
 
 public class RobotClient : MonoBehaviour
 {
-    [SerializeField] private float timeOrdering;
-    [SerializeField] private float speed;
-    [SerializeField] private float timeBetweenStates;
+    [SerializeField] private float timeOrdering; //tempo q demora pra fazer o pedido
+    [SerializeField] private float timeBetweenStates; //tempo ate ficar bravo
+
     private float currentTime;
     private ClientState state;
 
@@ -21,6 +21,8 @@ public class RobotClient : MonoBehaviour
     bool timeFlow = true;
 
     [SerializeField] private int score;
+
+    
 
     //Settar no instantiate
     public StrikeDisplayer strikeDisplayer;
@@ -38,15 +40,13 @@ public class RobotClient : MonoBehaviour
         Waiting();
     }
 
+    //
     private void OnMouseDown()
     {
+        // inicia a corotina MakeRequest se o cliente nao pediu nada ainda
         if (state == ClientState.Ordering)
         {
             StartCoroutine("MakeRequest");
-        }
-        else
-        {
-            CheckOrder();
         }
     }
 
@@ -75,11 +75,12 @@ public class RobotClient : MonoBehaviour
         }
     }
 
-
+    // MakeRequest roda e pausa a passagem do tempo para o timer enquanto o robo faz o pedido
     public IEnumerator MakeRequest()
     {
         timeFlow = false;
-        // fazer pedido e parara timbum
+        
+        //Precisa adicionar ele fazendo o pedido aqui///////////////////////////////////////////////////////////////////////
 
         yield return new WaitForSeconds(timeOrdering);
 
