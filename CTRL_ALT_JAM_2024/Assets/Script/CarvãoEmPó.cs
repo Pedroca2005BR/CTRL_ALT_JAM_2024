@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< Updated upstream
-public class IFritar : MonoBehaviour
+public class CarvãoEmPó : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,9 +15,4 @@ public class IFritar : MonoBehaviour
     {
         
     }
-=======
-public interface IFritar
-{
-    public void Fritar() { }
->>>>>>> Stashed changes
 }
