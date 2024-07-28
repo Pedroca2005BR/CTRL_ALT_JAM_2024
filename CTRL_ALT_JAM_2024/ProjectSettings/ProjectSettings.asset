@@ -671,11 +671,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 23a72f75-bec8-4883-9ace-fa779c8fe71e
+  cloudProjectId: f9e7ee1b-500a-41ff-af77-43fe662d3c54
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: papas robos
-  organizationId: d2024007029
+  projectName: CTRL_ALT_JAM_2024
+  organizationId: pedrodepaula2005
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

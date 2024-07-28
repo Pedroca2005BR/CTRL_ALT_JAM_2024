@@ -18,10 +18,11 @@ public class Fogao : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision) 
     {
-        ICozinhar colisor = collision.GetComponent<MonoBehaviour>() as ICozinhar;
-        if (colisor is ICozinhar cozinhar)
+        Debug.Log("Entrou Trigger!");
+        ICozinhar colisor = collision.GetComponent<ICozinhar>();
+        if (colisor != null)
         {
-            cozinhar.Cozinhar();
+            colisor.Cozinhar();
         }
     }
 }

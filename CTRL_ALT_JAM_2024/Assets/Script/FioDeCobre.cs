@@ -17,7 +17,7 @@ public class FioDeCobre : AbstractIngrediente, ICozinhar
     {
         
     }
-    void Cozinhar() {
+    public void Cozinhar() {
         if (!estaPronto && !estaProcessado) { 
             estaProcessado = true;
             spr.sprite = sprNovo;

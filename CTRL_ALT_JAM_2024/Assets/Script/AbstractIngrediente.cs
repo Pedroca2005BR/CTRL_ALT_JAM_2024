@@ -24,11 +24,12 @@ public class AbstractIngrediente : MonoBehaviour
     {
         try
         {
-            BoxCollider2D boxcollider = gameObject.AddComponent<BoxCollider2D>(); 
-            Rigidbody2D rigidbody = gameObject.AddComponent<Rigidbody2D>();
+            boxcollider = gameObject.AddComponent<BoxCollider2D>(); 
+            rigidbody = gameObject.AddComponent<Rigidbody2D>();
             boxcollider.isTrigger = true;
             boxcollider.size = new Vector2(1, 1);
             rigidbody.bodyType = RigidbodyType2D.Kinematic;
+            Debug.Log("deu algo?");
 
         }
         catch
