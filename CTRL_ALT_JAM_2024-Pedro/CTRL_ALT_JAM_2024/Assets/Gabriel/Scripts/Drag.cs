@@ -49,7 +49,7 @@ public class Drag : MonoBehaviour
             if (gameObject.tag == "copo")
             {
 
-                transform.position = new Vector3(-3, -44.3f, 0);
+                transform.position = new Vector3(-3, -43.6f, 0);
             }
             if (gameObject.tag == "pilha")
             {
@@ -60,17 +60,17 @@ public class Drag : MonoBehaviour
             if (gameObject.tag == "batata")
             {
 
-                transform.position = new Vector3(0, -80, 0);
+                transform.position = new Vector3(2, -70f, 0);
             }
             if (gameObject.tag == "salOuro")
             {
 
-                transform.position = new Vector3(-9.5f, -80, 0);
+                transform.position = new Vector3(-3f, -70.7f, 0);
             }
             if (gameObject.tag == "salCarvao")
             {
 
-                transform.position = new Vector3(-11, -80, 0);
+                transform.position = new Vector3(-2, -70.7f, 0);
             }
         }
     }
