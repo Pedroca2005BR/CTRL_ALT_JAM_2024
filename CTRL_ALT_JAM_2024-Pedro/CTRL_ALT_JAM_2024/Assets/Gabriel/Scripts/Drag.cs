@@ -60,7 +60,7 @@ public class Drag : MonoBehaviour
             if (gameObject.tag == "batata")
             {
 
-                transform.position = new Vector3(2, -70f, 0);
+                transform.position = new Vector3(2, -70.4f, 0);
             }
             if (gameObject.tag == "salOuro")
             {
